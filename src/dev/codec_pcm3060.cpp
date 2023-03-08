@@ -92,8 +92,17 @@ Pcm3060::Result Pcm3060::Init(I2CHandle i2c)
     if(WriteRegister(kAddrRegSysCtrl, sysreg) != Result::OK)
         return Result::ERR;
 
+
     // Success
     return Result::OK;
+}
+
+Pcm3060::Result Pcm3060::SetAdcAttenuation(uint8_t amt) {
+    if(WriteRegister(kAddrRegAdcAttenLeft, amt) != Result::OK)
+        return Result::ERR;
+
+    if(WriteRegister(kAddrRegAdcAttenRight, amt) != Result::OK)
+        return Result::ERR;
 }
 
 Pcm3060::Result Pcm3060::ReadRegister(uint8_t addr, uint8_t* data)

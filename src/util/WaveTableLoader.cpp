@@ -34,6 +34,17 @@ WaveTableLoader::Result WaveTableLoader::Import(const char *filename)
             // Fill mem
             switch(header_.BitPerSample)
             {
+                case 8:
+                {
+                    uint8_t *wsp;
+                    wsp = (uint8_t *)workspace;
+                    for(size_t i = 0; i < kWorkspaceSize * 2; i++)
+                    {
+                        buf_[wptr] = u82f(wsp[i]);
+                        wptr++;
+                    }
+                }
+                break;
                 case 16:
                 {
                     int16_t *wsp;

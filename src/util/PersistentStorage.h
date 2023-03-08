@@ -137,11 +137,13 @@ class PersistentStorage
         // Use the `==operator` in custom SettingStruct to fine tune
         // what may or may not trigger the erase/save.
         auto storage_data = reinterpret_cast<SaveStruct *>(data_ptr);
-        if(settings_ != storage_data->user_data)
+        // dsp.coffee added 'true' here while testing to skip the comparison
+        if((settings_ != storage_data->user_data) || true)
         {
             qspi_.Erase(address_offset_, address_offset_ + sizeof(s));
             qspi_.Write(address_offset_, sizeof(s), (uint8_t *)&s);
         }
+        
     }
 
     QSPIHandle &  qspi_;
