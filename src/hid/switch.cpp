@@ -10,7 +10,7 @@ void Switch::Init(dsy_gpio_pin pin,
     last_update_ = System::GetNow();
     updated_     = false;
     state_       = 0x00;
-    t_           = t;
+    t_           = Switch::Type::TYPE_MOMENTARY;
     // Flip may seem opposite to logical direction,
     // but here 1 is pressed, 0 is not.
     flip_         = pol == POLARITY_INVERTED ? true : false;

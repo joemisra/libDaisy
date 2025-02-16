@@ -44,7 +44,7 @@ class Switch
     /** 
     Initializes the switch object with a given port/pin combo.
     \param pin port/pin object to tell the switch which hardware pin to use.
-    \param update_rate Does nothing. Backwards compatibility until next breaking update.
+    \param update_rate Des nothing. Backwards compatibility until next breaking update.
     \param t switch type -- Default: TYPE_MOMENTARY
     \param pol switch polarity -- Default: POLARITY_INVERTED
     \param pu switch pull up/down -- Default: PULL_UP

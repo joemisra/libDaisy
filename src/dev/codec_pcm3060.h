@@ -34,6 +34,7 @@ class Pcm3060
     Result Init(I2CHandle i2c);
 
     Result SetAdcAttenuation(uint8_t amt);
+    Result SetDacAttenuation(uint8_t amt);
 
   private:
     /** Reads the data byte corresponding to the register address */

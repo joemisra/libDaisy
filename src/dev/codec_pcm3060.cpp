@@ -105,9 +105,17 @@ Pcm3060::Result Pcm3060::SetAdcAttenuation(uint8_t amt) {
         return Result::ERR;
 }
 
+Pcm3060::Result Pcm3060::SetDacAttenuation(uint8_t amt) {
+    if(WriteRegister(kAddrRegDacAttenLeft, amt) != Result::OK)
+        return Result::ERR;
+
+    if(WriteRegister(kAddrRegDacAttenRight, amt) != Result::OK)
+        return Result::ERR;
+}
+
 Pcm3060::Result Pcm3060::ReadRegister(uint8_t addr, uint8_t* data)
 {
-    if(i2c_.ReadDataAtAddress(dev_addr_, addr, 1, data, 1, 250)
+    if(i2c_.ReadDataAtAddress(dev_addr_, addr, 1, data, 1, 25)
        != I2CHandle::Result::OK)
     {
         return Result::ERR;
@@ -117,7 +125,7 @@ Pcm3060::Result Pcm3060::ReadRegister(uint8_t addr, uint8_t* data)
 
 Pcm3060::Result Pcm3060::WriteRegister(uint8_t addr, uint8_t val)
 {
-    if(i2c_.WriteDataAtAddress(dev_addr_, addr, 1, &val, 1, 250)
+    if(i2c_.WriteDataAtAddress(dev_addr_, addr, 1, &val, 1, 25)
        != I2CHandle::Result::OK)
     {
         return Result::ERR;

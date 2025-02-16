@@ -161,7 +161,7 @@ extern "C"
             if(SCB->CFSR & SCB_CFSR_UNSTKERR_Msk)
                 __asm("BKPT #0");
             if(SCB->CFSR & SCB_CFSR_IMPRECISERR_Msk)
-                __asm("BKPT #0");
+               __asm("BKPT #0");
             if(SCB->CFSR & SCB_CFSR_PRECISERR_Msk)
                 __asm("BKPT #0");
             if(SCB->CFSR & SCB_CFSR_IBUSERR_Msk)

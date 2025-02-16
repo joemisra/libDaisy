@@ -50,6 +50,7 @@ class MidiUartTransport
         uart_config.mode       = UartHandler::Config::Mode::TX_RX;
         uart_config.wordlength = UartHandler::Config::WordLength::BITS_8;
 
+
         //user settings
         uart_config.periph        = config.periph;
         uart_config.pin_config.rx = config.rx;
